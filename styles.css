@@ -1,0 +1,430 @@
+/* === Base Reset & Global === */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #000;
+  color: #eee;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* === Snap Scrolling === */
+main.snap-container {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+section.snap-section {
+  scroll-snap-align: start;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* === Hero Section === */
+section.hero {
+  position: relative;
+  color: white;
+}
+
+section.hero video.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+section.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+section.hero .content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding: 0 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  height: 100vh;
+  position: relative;
+}
+
+section.hero h1 {
+  font-weight: 900;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  margin: 0 0 1rem 0;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
+}
+
+section.hero p {
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: #ccc;
+  margin: 0 0 2rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s 0.3s forwards;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 1rem 3rem;
+  background: linear-gradient(90deg, #0071e3, #003b8a);
+  color: white;
+  border-radius: 40px;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgb(0 113 227 / 0.5);
+  transition: background 0.4s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background: linear-gradient(90deg, #005bb5, #001f4d);
+  box-shadow: 0 15px 30px rgb(0 91 181 / 0.7);
+  outline: none;
+}
+
+
+/* === Reveal Animation === */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* === Typography & Layout === */
+h2 {
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+p, ul {
+  font-weight: 400;
+  color: #bbb;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.5;
+}
+
+ul {
+  list-style: inside disc;
+}
+
+ul li {
+  margin-bottom: 0.75rem;
+}
+
+section.bg-gray {
+  background-color: #111;
+}
+
+.btn {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* === Responsive Media === */
+@media (max-width: 600px) {
+  section.hero h1 {
+    font-size: 3rem;
+  }
+
+  section.hero p {
+    font-size: 1rem;
+  }
+
+  section.hero a.btn {
+    padding: 0.8rem 2.5rem;
+  }
+}
+
+/* === Animations === */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Video Wrapper (Generic) === */
+.video-wrapper {
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.8);
+  background: #000;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* === Footer === */
+footer {
+  background-color: #111;
+  color: #666;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* === Gallery Section === */
+section.bg-dark {
+  background-color: #000;
+}
+
+/* Award-Winning Highlight */
+.gallery-award {
+  max-width: 960px;
+  margin: 3rem auto 2rem;
+  text-align: center;
+}
+
+.gallery-award img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3); /* golden glow */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-award img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 50px rgba(255, 215, 0, 0.5);
+}
+
+.award-caption {
+  margin-top: 1rem;
+  color: #ffdf00;
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* Classic Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Horizontal Rolex-Style Gallery */
+.gallery-scroll {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 2rem;
+  padding: 2rem;
+  margin-top: 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.media-card {
+  flex: 0 0 auto;
+  width: 80vw;
+  max-width: 720px;
+  scroll-snap-align: center;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  background: #000;
+  transition: transform 0.3s ease;
+}
+
+.media-card:hover {
+  transform: scale(1.02);
+}
+
+.media-card img,
+.media-card video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Misc Gallery Item Styling */
+.gallery-item {
+  max-width: 720px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+  transition: transform 0.4s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.02);
+}
+
+.gallery-item .caption {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: #ccc;
+  font-style: italic;
+}
+
+.media-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  background: #000;
+  transition: transform 0.3s ease;
+}
+
+.media-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.media-wrapper img,
+.media-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+/* ----- More Gallery Button Styling ----- */
+.more-gallery-btn-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+.more-gallery-btn {
+  background: #fff;
+  color: #000;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.more-gallery-btn:hover {
+  background: #ccc;
+  color: #111;
+}
+
+/* ----- Gallery Page Styles ----- */
+.gallery-page {
+  background: #111;
+  color: #fff;
+  font-family: sans-serif;
+}
+.gallery-header {
+  text-align: center;
+  padding: 2rem;
+  background: #000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.gallery-header h1 {
+  margin: 0.5rem 0 0;
+}
+.back-link {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+/* ----- Media Cards Layout ----- */
+.gallery-wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.media-card {
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+}
+.media-card img,
+.media-card video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
