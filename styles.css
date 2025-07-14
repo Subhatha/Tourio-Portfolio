@@ -451,3 +451,83 @@ section.bg-dark {
   }
 }
 
+@media (max-width: 768px) {
+  /* Reduce padding for smaller devices */
+  section.snap-section {
+    padding: 0 1rem;
+  }
+
+  /* Scale hero content */
+  section.hero h1 {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  section.hero p {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
+  }
+
+  /* Gallery grid single column */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .media-card {
+    width: 90vw;
+  }
+
+  /* Image and media responsiveness */
+  .gallery-item img,
+  .gallery-award img,
+  .media-wrapper img,
+  .media-card img,
+  .media-card video {
+    border-radius: 8px;
+  }
+
+  /* Scroll gallery tighter spacing */
+  .gallery-scroll {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  /* Footer padding */
+  footer {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+
+  /* Sticky header spacing */
+  .gallery-header {
+    padding: 1rem;
+  }
+
+  .gallery-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .back-link {
+    font-size: 0.9rem;
+  }
+
+  /* Scroll arrow margin adjustment */
+  .scroll-down-arrow {
+    margin-top: 1rem;
+    width: 30px;
+    height: 30px;
+  }
+}
+.btn {
+  touch-action: manipulation;
+  min-height: 48px;
+  min-width: 48px;
+}
+
+
