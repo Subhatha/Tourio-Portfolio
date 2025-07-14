@@ -1,262 +1,115 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Me | My Drone Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("5Q5uSi6mrokaZM-cS");
+  })();
+</script>
 
   <style>
-    /* Reset and base */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: system-ui, sans-serif;
       background-color: #000;
-      color: #eee;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      scroll-behavior: smooth;
-    }
-
-    /* Header */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #121212cc;
-      backdrop-filter: saturate(180%) blur(10px);
-      -webkit-backdrop-filter: saturate(180%) blur(10px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 3rem;
-      border-bottom: 1px solid #222;
-      z-index: 1000;
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #0a84ff;
-      text-decoration: none;
-    }
-    nav {
-      display: flex;
-      gap: 2rem;
-    }
-    nav a {
-      position: relative;
-      color: #bbb;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-    nav a::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      height: 2px;
-      width: 0%;
-      background: #0a84ff;
-      transition: width 0.3s ease;
-    }
-    nav a:hover,
-    nav a:focus {
       color: #fff;
-      outline: none;
-    }
-    nav a:hover::after,
-    nav a:focus::after,
-    nav a.active::after {
-      width: 100%;
-    }
-    nav a.active {
-      color: #0a84ff;
+      padding: 2rem;
     }
 
-    /* Main layout */
-    main {
-      padding: 6.5rem 3rem 4rem;
+    a {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-container {
       max-width: 600px;
       margin: 0 auto;
-      flex-grow: 1;
     }
 
-    h1.reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s ease-out forwards;
-      animation-delay: 0.3s;
-      text-align: center;
-      font-size: 2.75rem;
-      margin-bottom: 2.5rem;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    h1 {
+      margin-bottom: 1.5rem;
     }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
     }
 
     label {
-      display: block;
-      font-weight: 600;
-      color: #ccc;
-      margin-bottom: 0.25rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
     }
 
-    .input-field {
-      background: #121212;
-      border: 1.5px solid #333;
-      border-radius: 10px;
-      padding: 0.75rem 1rem;
+    input,
+    textarea {
+      margin-top: 0.3rem;
+      padding: 0.75rem;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: #fff;
       font-size: 1rem;
-      color: #eee;
-      transition: all 0.3s ease;
-      width: 100%;
-    }
-
-    .input-field::placeholder {
-      color: #666;
-    }
-
-    .input-field:focus {
-      border-color: #0a84ff;
-      background: #1a1a1a;
-      box-shadow: 0 0 10px #0a84ff55;
       outline: none;
     }
 
-    textarea.input-field {
+    input:focus,
+    textarea:focus {
+      border-color: #fff;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+    }
+
+    textarea {
       resize: vertical;
       min-height: 120px;
     }
 
-    button.btn {
-      background: linear-gradient(90deg, #0a84ff, #0047ba);
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      background-color: #fff;
       border: none;
-      border-radius: 8px;
-      color: white;
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding: 0.75rem 2rem;
-      width: 50%;
-      max-width: 240px;
-      align-self: center;
+      color: #000;
+      font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 5px 15px rgba(10, 132, 255, 0.35);
+      border-radius: 6px;
     }
 
-    button.btn:hover,
-    button.btn:focus {
-      background: linear-gradient(90deg, #0047ba, #0a84ff);
-      box-shadow: 0 8px 25px rgba(10, 132, 255, 0.6);
-    }
-
-    /* Contact info below form */
-    .contact-info {
-      margin-top: 3rem;
-      text-align: center;
-      font-size: 1.05rem;
-      color: #aaa;
-    }
-    .contact-info p {
-      margin: 0.3rem 0;
-    }
-    .contact-info a {
-      color: #0a84ff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    .contact-info a:hover,
-    .contact-info a:focus {
-      color: #4da1ff;
-      outline: none;
-      text-decoration: underline;
-    }
-
-    /* Footer */
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 1.5rem 3rem;
-      color: #666;
-      font-size: 0.9rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      header {
-        padding: 1rem 1.5rem;
-      }
-      nav {
-        gap: 1.25rem;
-      }
-      main {
-        padding: 6rem 1.5rem 3rem;
-      }
-      h1.reveal {
-        font-size: 2rem;
-      }
-      button.btn {
-        width: 100%;
-      }
+    button:hover {
+      background-color: #ccc;
     }
   </style>
 </head>
 <body>
 
-  <header role="banner" aria-label="Primary navigation">
-    <a href="index.html" class="logo">My Drone Portfolio</a>
-    <nav role="navigation" aria-label="Main menu">
-      <a href="index.html">Home</a>
-      <a href="contact.html" class="active" aria-current="page">Contact</a>
-    </nav>
-  </header>
+  <a href="index.html">← Home</a>
 
-  <main>
-    <h1 class="reveal">Get in Touch</h1>
+ <div class="contact-container">
+  <h1>Contact Me</h1>
+  <form onsubmit="event.preventDefault(); sendMail();">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required />
 
-    <form action="mailto:kaumudnet@gmail.com" method="POST" enctype="text/plain" novalidate>
-      <label for="name">Name
-        <input id="name" type="text" name="name" required class="input-field" placeholder="Your name" autocomplete="name" />
-      </label>
+    <label for="subject">Subject</label>
+    <input type="text" id="subject" name="subject" required />
 
-      <label for="email">Email
-        <input id="email" type="email" name="email" required class="input-field" placeholder="you@example.com" autocomplete="email" />
-      </label>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required />
 
-      <label for="message">Message
-        <textarea id="message" name="message" required class="input-field" placeholder="Your message"></textarea>
-      </label>
+    <label for="message">Message</label>
+    <textarea id="message" name="message" required></textarea>
 
-      <button type="submit" class="btn" aria-label="Send your message">Send Message</button>
-    </form>
+    <button type="submit">Send Message</button>
+  </form>
+</div>
 
-    <section class="contact-info" aria-label="Additional contact information">
-      <p>Or reach me directly at:</p>
-      <p>Email: <a href="mailto:kaumudnet@gmail.com" tabindex="0">kaumudnet@gmail.com</a></p>
-      <p>Instagram: <a href="https://www.instagram.com/t_o_u_r_i_o_?igsh=MWw2Zmxia3FjMWc5cA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" tabindex="0">@t_o_u_r_i_o</a></p>
-    </section>
-  </main>
-
-  <footer>&copy; 2025 Subhatha Senanayake. All rights reserved.</footer>
-
+  <script src="contact.js"></script>
 </body>
 </html>
