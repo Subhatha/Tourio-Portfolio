@@ -34,5 +34,4 @@ function revealOnScroll() {
   });
 }
 
-window.addEventListener('scroll', revealOnScroll);
-document.addEventListener('DOMContentLoaded', revealOnScroll);
+
