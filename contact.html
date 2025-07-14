@@ -5,65 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact</title>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function () {
-    emailjs.init("5Q5uSi6mrokaZM-cS");
-  })();
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("5Q5uSi6mrokaZM-cS");
+    })();
+  </script>
 
   <style>
     body {
       margin: 0;
-      font-family: system-ui, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #000;
       color: #fff;
       padding: 2rem;
+      line-height: 1.6;
     }
 
     a {
-      display: inline-block;
-      margin-bottom: 2rem;
-      color: #fff;
+      color: #0af;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #09f;
     }
 
     .contact-container {
-      max-width: 600px;
+      max-width: 650px;
       margin: 0 auto;
     }
 
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      color: #0af;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .back-link:hover {
+      color: #09f;
+      transform: translateX(-4px);
+    }
+
     h1 {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
+      font-size: 2.2rem;
+      border-bottom: 2px solid #222;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title {
+      margin-top: 2.2rem;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.4rem;
+    }
+
+    .direct-contact {
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 1.2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px rgba(0, 170, 255, 0.05);
+    }
+
+    .direct-contact p {
+      margin: 0.6rem 0;
+      font-size: 1rem;
+    }
+
+    .direct-contact a {
+      color: #0af;
+      font-weight: normal;
     }
 
     form {
       display: flex;
       flex-direction: column;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 0 15px rgba(0, 170, 255, 0.05);
     }
 
     label {
       margin-top: 1rem;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
 
     input,
     textarea {
-      margin-top: 0.3rem;
+      margin-top: 0.4rem;
       padding: 0.75rem;
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 6px;
+      background: #222;
+      border: 1px solid #444;
+      border-radius: 8px;
       color: #fff;
       font-size: 1rem;
       outline: none;
+      transition: border 0.2s, box-shadow 0.2s;
     }
 
     input:focus,
     textarea:focus {
-      border-color: #fff;
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+      border-color: #0af;
+      box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
     }
 
     textarea {
@@ -74,41 +129,52 @@
     button {
       margin-top: 1.5rem;
       padding: 0.75rem;
-      background-color: #fff;
+      background-color: #0af;
       border: none;
       color: #000;
       font-weight: bold;
       cursor: pointer;
-      border-radius: 6px;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background-color 0.3s, transform 0.2s;
     }
 
     button:hover {
-      background-color: #ccc;
+      background-color: #08c;
+      transform: scale(1.02);
     }
   </style>
 </head>
 <body>
 
-  <a href="index.html">← Home</a>
+  <a class="back-link" href="index.html">← Home</a>
 
- <div class="contact-container">
-  <h1>Contact Me</h1>
-  <form onsubmit="event.preventDefault(); sendMail();">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required />
+  <div class="contact-container">
+    <h1>Contact Me</h1>
 
-    <label for="subject">Subject</label>
-    <input type="text" id="subject" name="subject" required />
+    <div class="section-title">📬 Direct Contact</div>
+    <div class="direct-contact">
+      <p>📧 Email: <a href="mailto:kaumudnet@gmail.com">kaumudnet@gmail.com</a></p>
+      <p>📷 Instagram: <a href="https://www.instagram.com/t_o_u_r_i_o_/?igsh=MWw2Zmxia3FjMWc5cA%3D%3D&utm_source=qr" target="_blank">T_o_u_r_i_o</a></p>
+    </div>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required />
+    <div class="section-title">💬 Send a Message</div>
+    <form onsubmit="event.preventDefault(); sendMail();">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" required></textarea>
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" required />
 
-    <button type="submit">Send Message</button>
-  </form>
-</div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
 
   <script src="contact.js"></script>
 </body>
