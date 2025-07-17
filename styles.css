@@ -15,7 +15,7 @@ body, html {
   scroll-behavior: smooth;
 }
 
-/* === Snap Scrolling === */
+
 main.snap-container {
   height: 100vh;
   scroll-snap-type: y mandatory;
@@ -36,7 +36,7 @@ section.snap-section {
   overflow: hidden;
 }
 
-/* === Hero Section === */
+
 section.hero {
   position: relative;
   color: white;
@@ -120,7 +120,7 @@ section.hero p {
 }
 
 
-/* === Reveal Animation === */
+
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -132,7 +132,7 @@ section.hero p {
 }
 
 
-/* === Typography & Layout === */
+
 h2 {
   font-weight: 900;
   font-size: clamp(2rem, 5vw, 3rem);
@@ -167,7 +167,7 @@ section.bg-gray {
   user-select: none;
 }
 
-/* === Responsive Media === */
+
 @media (max-width: 600px) {
   section.hero h1 {
     font-size: 3rem;
@@ -182,7 +182,6 @@ section.bg-gray {
   }
 }
 
-/* === Animations === */
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -190,7 +189,7 @@ section.bg-gray {
   }
 }
 
-/* === Video Wrapper (Generic) === */
+
 .video-wrapper {
   width: 100%;
   max-width: 1300px;
@@ -210,7 +209,7 @@ section.bg-gray {
   display: block;
 }
 
-/* === Footer === */
+
 footer {
   background-color: #111;
   color: #666;
@@ -220,12 +219,12 @@ footer {
   user-select: none;
 }
 
-/* === Gallery Section === */
+
 section.bg-dark {
   background-color: #000;
 }
 
-/* Award-Winning Highlight */
+
 .gallery-award {
   max-width: 960px;
   margin: 3rem auto 2rem;
@@ -253,7 +252,7 @@ section.bg-dark {
   font-style: italic;
 }
 
-/* Classic Gallery Grid */
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -277,7 +276,6 @@ section.bg-dark {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
 }
 
-/* Horizontal Rolex-Style Gallery */
 .gallery-scroll {
   display: flex;
   gap: 2rem;
@@ -318,7 +316,7 @@ section.bg-dark {
   border-radius: 16px;
 }
 
-/* Misc Gallery Item Styling */
+
 .gallery-item {
   max-width: 720px;
   margin: 2rem auto;
@@ -364,7 +362,7 @@ section.bg-dark {
   border-radius: 12px;
   object-fit: cover;
 }
-/* ----- More Gallery Button Styling ----- */
+
 .more-gallery-btn-wrapper {
   text-align: center;
   margin-top: 2rem;
@@ -382,7 +380,7 @@ section.bg-dark {
   color: #111;
 }
 
-/* ----- Gallery Page Styles ----- */
+
 .gallery-page {
   background: #111;
   color: #fff;
@@ -408,7 +406,7 @@ section.bg-dark {
   color: #fff;
 }
 
-/* ----- Media Cards Layout ----- */
+
 .gallery-wrapper {
   padding: 2rem;
   display: flex;
@@ -452,12 +450,12 @@ section.bg-dark {
 }
 
 @media (max-width: 768px) {
-  /* Reduce padding for smaller devices */
+
   section.snap-section {
     padding: 0 1rem;
   }
 
-  /* Scale hero content */
+
   section.hero h1 {
     font-size: clamp(2rem, 7vw, 3rem);
   }
@@ -472,7 +470,7 @@ section.bg-dark {
     padding: 0.9rem 2rem;
   }
 
-  /* Gallery grid single column */
+
   .gallery-grid {
     grid-template-columns: 1fr;
     padding: 1rem;
@@ -483,7 +481,7 @@ section.bg-dark {
     width: 90vw;
   }
 
-  /* Image and media responsiveness */
+
   .gallery-item img,
   .gallery-award img,
   .media-wrapper img,
@@ -492,19 +490,19 @@ section.bg-dark {
     border-radius: 8px;
   }
 
-  /* Scroll gallery tighter spacing */
+
   .gallery-scroll {
     gap: 1rem;
     padding: 1rem;
   }
 
-  /* Footer padding */
+  
   footer {
     padding: 1rem;
     font-size: 0.8rem;
   }
 
-  /* Sticky header spacing */
+
   .gallery-header {
     padding: 1rem;
   }
@@ -517,7 +515,7 @@ section.bg-dark {
     font-size: 0.9rem;
   }
 
-  /* Scroll arrow margin adjustment */
+
   .scroll-down-arrow {
     margin-top: 1rem;
     width: 30px;
