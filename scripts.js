@@ -1,4 +1,4 @@
-// Reveal elements on scroll (intersection observer)
+
 document.addEventListener('DOMContentLoaded', () => {
   const revealElements = document.querySelectorAll('.reveal');
 
